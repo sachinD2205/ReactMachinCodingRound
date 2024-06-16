@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import CustomModal from "./components/customModal/CustomModal";
+import ExUseMemoHook from "../src/components/useMemoHook/ExUseMemoHook";
+import ExIncrementDecrement from "./components/incrementDecrementCustomHook/ExIncrementDecrement";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {/** 
+      <CustomModal />
+       */}
+
+      {/** 
+      <ExUseMemoHook />
+       */}
+
+      {/**
+      <ExIncrementDecrement />
+       */}
+    </>
   );
 }
 
