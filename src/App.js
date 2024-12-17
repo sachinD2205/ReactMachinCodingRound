@@ -10,24 +10,21 @@ import CounterState from "./components/CounterState/Index";
 function App() {
   return (
     <>
-      {/** 
-      <CustomModal />
-       */}
+      {/* <CustomModal /> */}
 
-      {/** 
-      <ExUseMemoHook />
-       */}
+      {/* <ExUseMemoHook /> */}
 
-      {/**
-      <ExIncrementDecrement />
-       */}
+      {/* <ExIncrementDecrement /> */}
 
-      {/**<SelectDropDownProblemEx />*/}
+      {/* <SelectDropDownProblemEx /> */}
 
       {/* <SelectCheckBoxAndDeleteItem /> */}
+
       {/* <DisplayMessage message="Ganesh" /> */}
+
       {/* <FormHandling /> */}
-      <CounterState />
+
+      {/* <CounterState /> */}
     </>
   );
 }

@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+
+// diffrence Between state variable vs normal variable
 function Index() {
   let [counter, setCounter] = useState(0);
   counter = 5;
