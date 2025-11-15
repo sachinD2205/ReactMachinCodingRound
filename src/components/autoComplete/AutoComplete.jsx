@@ -1,8 +1,17 @@
-import react, { useEffect, useState } from "react";
+import react, { useEffect, useState,useCallback } from "react";
 import InputTextField from "./components/InputTextField";
 import Button from "./components/Button";
 import SuggestionList from "./components/SuggestionList";
 import styles from "./components/AutoComplete.module.css";
+
+  const debounceFun = (fun, delay) => {
+    let timeout;
+
+    return (...args) => {
+      if (timeout) clearTimeout(timeout);
+      timeout = setTimeout(() => fun(...args), delay);
+    };
+  };
 
 const AutoComplete = () => {
   const suggestions = [
@@ -17,7 +26,7 @@ const AutoComplete = () => {
     "Mint Orange",
     "Berry Plum",
   ];
-  const [loading,setLoading]= useState(false)
+  const [loading, setLoading] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [seletedFromFilteredOptions, setSelectedFromFiltredOptions] =
     useState("");
@@ -39,6 +48,7 @@ const AutoComplete = () => {
   };
 
   const updateFiltredSuggestion = (value, suggestions) => {
+    console.log("updateFiltered is called");
     if (value) {
       const filterdSuggestions = filterSuggestion(value, suggestions);
       setFilteredSuggestion(filterdSuggestions);
@@ -47,15 +57,25 @@ const AutoComplete = () => {
     }
   };
 
+
+
+  const updateFiltredSuggestionDebonce = useCallback(
+    debounceFun(
+      updateFiltredSuggestion,
+      5000
+    ),
+    []
+  );
+
   const handleInputChange = (value) => {
     setInputValue(value);
     setSuggestionIsSelected(false);
-    updateFiltredSuggestion(value, suggestions);
+    updateFiltredSuggestionDebonce(value, suggestions);
   };
   const handleButtonChange = () => {
     setInputValue("");
     setSuggestionIsSelected(false);
-    updateFiltredSuggestion("", suggestions);
+    updateFiltredSuggestionDebonce("", suggestions);
     setSelectedFromFiltredOptions("");
   };
 
@@ -63,15 +83,15 @@ const AutoComplete = () => {
     new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(suggestions);
-      }, [2000]);
+      }, 2000);
     }).then((data) => {
-        setFilteredSuggestion(data)
-        setLoading(false)
+      setFilteredSuggestion(data);
+      setLoading(false);
     });
   };
 
   useEffect(() => {
-setLoading(true)
+    setLoading(true);
     fetchSuggestion();
   }, []);
 
@@ -87,18 +107,19 @@ setLoading(true)
         </div>
       </div>
       <div>
-        {loading ? <>loading......</>:
-        <>
-        {!suggestionIsSelected && (
-          <SuggestionList
-            suggestions={filtredSuggestion}
-            suggestionClickHandler={suggestionClickHandler}
-            seletedFromFilteredOptions={seletedFromFilteredOptions}
-          />
+        {loading ? (
+          <>loading......</>
+        ) : (
+          <>
+            {!suggestionIsSelected && (
+              <SuggestionList
+                suggestions={filtredSuggestion}
+                suggestionClickHandler={suggestionClickHandler}
+                seletedFromFilteredOptions={seletedFromFilteredOptions}
+              />
+            )}
+          </>
         )}
-        
-        </>
-        }
       </div>
     </div>
   );
