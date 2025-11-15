@@ -1,0 +1,9 @@
+.buttonWrapper button {
+  border: none;
+  text-align: center;
+  background-color: transparent;
+}
+
+.buttonWrapper button[data-isSelected="true"] {
+  background-color: red;
+}

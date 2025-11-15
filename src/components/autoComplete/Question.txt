@@ -1,0 +1,13 @@
+AutoComplete TypeHead
+1. User should be able to type on the text field.
+2. If there are suggestion available, show them below text field.
+3. User can select option from the list.
+4. Handle No Suggestion found case
+5. Once Selection is made, suggestions should be hidden
+6. User should be able to clear the text field, with the help of a clear  button.
+7. Selected item should be shown differently then rest of the options.
+
+Bonus Points:
+- Get Suggestions from API
+- Show loader in list until list is populated
+- Debounce the input

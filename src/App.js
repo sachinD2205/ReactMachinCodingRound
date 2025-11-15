@@ -7,9 +7,12 @@ import SelectCheckBoxAndDeleteItem from "./components/checkBoxAndDelete/SelectCh
 import DisplayMessage from "../src/components/demo/Test";
 import FormHandling from "../src/components/FormHandling/Index";
 import CounterState from "./components/CounterState/Index";
+import Intervals from "./components/intervals/Intervals.jsx";
+import AutoComplete from "./components/autoComplete/AutoComplete";
+
 function App() {
   return (
-    <>
+    <> 
       {/* <CustomModal /> */}
 
       {/* <ExUseMemoHook /> */}
@@ -25,6 +28,11 @@ function App() {
       {/* <FormHandling /> */}
 
       {/* <CounterState /> */}
+
+      {/* <Intervals /> */}
+
+      <AutoComplete />
+
     </>
   );
 }
