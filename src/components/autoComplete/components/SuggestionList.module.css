@@ -7,3 +7,7 @@
 .buttonWrapper button[data-isSelected="true"] {
   background-color: red;
 }
+
+.suggestionListWrapper{
+    position: absolute;
+}

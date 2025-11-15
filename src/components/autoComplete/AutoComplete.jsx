@@ -1,7 +1,8 @@
-import react, { useState } from "react";
+import react, { useEffect, useState } from "react";
 import InputTextField from "./components/InputTextField";
 import Button from "./components/Button";
 import SuggestionList from "./components/SuggestionList";
+import styles from "./components/AutoComplete.module.css";
 
 const AutoComplete = () => {
   const suggestions = [
@@ -16,11 +17,11 @@ const AutoComplete = () => {
     "Mint Orange",
     "Berry Plum",
   ];
-
+  const [loading,setLoading]= useState(false)
   const [inputValue, setInputValue] = useState("");
   const [seletedFromFilteredOptions, setSelectedFromFiltredOptions] =
     useState("");
-  const [filtredSuggestion, setFilteredSuggestion] = useState(suggestions);
+  const [filtredSuggestion, setFilteredSuggestion] = useState([]);
   const [suggestionIsSelected, setSuggestionIsSelected] = useState(false);
 
   const suggestionClickHandler = (value) => {
@@ -58,23 +59,48 @@ const AutoComplete = () => {
     setSelectedFromFiltredOptions("");
   };
 
+  const fetchSuggestion = () => {
+    new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(suggestions);
+      }, [2000]);
+    }).then((data) => {
+        setFilteredSuggestion(data)
+        setLoading(false)
+    });
+  };
+
+  useEffect(() => {
+setLoading(true)
+    fetchSuggestion();
+  }, []);
+
   return (
-    <>
-      <div>
-        <InputTextField
-          handleInputChange={handleInputChange}
-          value={inputValue}
-        />
-        <Button name="clear" handleButtonChange={handleButtonChange} />
+    <div className={styles.autoCompleteWrapper}>
+      <div className={styles.inputWrapper}>
+        <div>
+          <InputTextField
+            handleInputChange={handleInputChange}
+            value={inputValue}
+          />
+          <Button name="clear" handleButtonChange={handleButtonChange} />
+        </div>
       </div>
-      {!suggestionIsSelected && (
-        <SuggestionList
-          suggestions={filtredSuggestion}
-          suggestionClickHandler={suggestionClickHandler}
-          seletedFromFilteredOptions={seletedFromFilteredOptions}
-        />
-      )}
-    </>
+      <div>
+        {loading ? <>loading......</>:
+        <>
+        {!suggestionIsSelected && (
+          <SuggestionList
+            suggestions={filtredSuggestion}
+            suggestionClickHandler={suggestionClickHandler}
+            seletedFromFilteredOptions={seletedFromFilteredOptions}
+          />
+        )}
+        
+        </>
+        }
+      </div>
+    </div>
   );
 };
 

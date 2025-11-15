@@ -8,7 +8,7 @@ const SuggestionList = ({
 }) => {
   return (
     <>
-      <div>
+      <div className={style.suggestionListWrapper}>
         {suggestions?.map((suggestion, index) => {
           return (
             <div key={suggestion + index} className={style.buttonWrapper}>
