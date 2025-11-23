@@ -9,6 +9,7 @@ import FormHandling from "../src/components/FormHandling/Index";
 import CounterState from "./components/CounterState/Index";
 import Intervals from "./components/intervals/Intervals.jsx";
 import AutoComplete from "./components/autoComplete/AutoComplete";
+import Tab from "./components/tabList/Tab.jsx";
 
 function App() {
   return (
@@ -31,7 +32,10 @@ function App() {
 
       {/* <Intervals /> */}
 
-      <AutoComplete />
+
+      {/* <AutoComplete /> */}
+
+      <Tab/>
 
     </>
   );
