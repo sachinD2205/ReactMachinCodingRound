@@ -1,0 +1,16 @@
+1. User Should be able to add a Todo. 
+    a. ToDo Should get added when we click enter
+    b. Show 2 ways to add Todo using enter.
+2. Added Todo should be visible as list.
+3. User Should be able to Edit A Todo.
+4. User Should be able to Delete A Todo.
+5. User Should Be Able to See the Added todo list on Page Refresh e
+6. User Should be able to mark a to do as Done.
+7. Done todo should be moved to bottom with a striked out line.
+8. There should be a button to filter between completed and pending todos
+9. 'When I enter something on text field, I should get two options
+    1. Add Todo
+    2. Search Todo ( A Search button should pop up next to Add Todo Button)
+10. At a given time 2 Filters can be applied. Search and Done Todos.
+11. Show todo list as category based on date.
+

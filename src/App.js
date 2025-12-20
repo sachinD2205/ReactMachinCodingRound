@@ -10,6 +10,7 @@ import CounterState from "./components/CounterState/Index";
 import Intervals from "./components/intervals/Intervals.jsx";
 import AutoComplete from "./components/autoComplete/AutoComplete";
 import Tab from "./components/tabList/Tab.jsx";
+import ToDoList from "./components/toDoList/ToDoList"
 
 function App() {
   return (
@@ -35,7 +36,9 @@ function App() {
 
       {/* <AutoComplete /> */}
 
-      <Tab/>
+      {/* <Tab/> */}
+
+      <ToDoList/>
 
     </>
   );
