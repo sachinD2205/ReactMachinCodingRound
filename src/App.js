@@ -12,6 +12,7 @@ import AutoComplete from "./components/autoComplete/AutoComplete";
 import Tab from "./components/tabList/Tab.jsx";
 import ToDoList from "./components/toDoList/ToDoList"
 import BarChart from "./components/BarChart/index.jsx";
+import AutoRetry from "./components/AutoRetry";
 
 function App() {
   return (
@@ -41,7 +42,9 @@ function App() {
 
       {/* <ToDoList/> */}
 
-      <BarChart/>
+      {/* <BarChart/> */}
+
+      <AutoRetry  />
 
     </>
   );
