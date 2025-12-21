@@ -11,6 +11,7 @@ import Intervals from "./components/intervals/Intervals.jsx";
 import AutoComplete from "./components/autoComplete/AutoComplete";
 import Tab from "./components/tabList/Tab.jsx";
 import ToDoList from "./components/toDoList/ToDoList"
+import BarChart from "./components/BarChart/index.jsx";
 
 function App() {
   return (
@@ -38,7 +39,9 @@ function App() {
 
       {/* <Tab/> */}
 
-      <ToDoList/>
+      {/* <ToDoList/> */}
+
+      <BarChart/>
 
     </>
   );
