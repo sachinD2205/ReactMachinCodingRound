@@ -13,6 +13,7 @@ import Tab from "./components/tabList/Tab.jsx";
 import ToDoList from "./components/toDoList/ToDoList"
 import BarChart from "./components/BarChart/index.jsx";
 import AutoRetry from "./components/AutoRetry";
+import InfiniteScroll from "./components/InfiniteScroll"
 
 function App() {
   return (
@@ -44,7 +45,9 @@ function App() {
 
       {/* <BarChart/> */}
 
-      <AutoRetry  />
+      {/* <AutoRetry  /> */}
+
+      <InfiniteScroll/>
 
     </>
   );

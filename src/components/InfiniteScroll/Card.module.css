@@ -1,0 +1,49 @@
+.cardContainer {
+  width: 400px;
+  height: 300px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardWrapper {
+  display: flex;
+  gap: 25px;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.cardContainer img {
+  width: 100%;
+  flex: 1;
+  object-fit: fill;
+  overflow: hidden;
+}
+
+.cardContainer h4,
+.cardContainer h6 {
+  margin: 5px 10px;
+  /* padding: 0px; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.shimmerCardContainer {
+  width: 400px;
+  height: 300px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+}
+
+.shimmerCard {
+  height: 100%;
+  background-color: lightgray;
+  margin: 10px 10px;
+}
