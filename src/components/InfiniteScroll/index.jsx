@@ -11,7 +11,11 @@ const InfiniteScroll = () => {
       const api = `https://meme-api.com/gimme/20`;
       const res = await fetch(api);
       const data = await res.json();
-      setMems((prev) => [...prev, ...data.memes]);
+      setMems((prev) => {
+        const newMems = [...prev, ...data.memes];
+        // Keep only last 100 items in DOM for performance
+        return newMems.length > 100 ? newMems.slice(-100) : newMems;
+      });
       setShowShimmer(false);
     } catch (error) {
       setShowShimmer(false);
