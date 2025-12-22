@@ -1,5 +1,7 @@
-const fetch = async (api, limit = 1, signal) => {
+const fetch = async (api, limit = 1, options) => {
   console.log("fetch", limit);
+
+  const signal = options?.signal;
 
   return new Promise((resolve, reject) => {
     if (signal?.aborted) {
@@ -12,7 +14,7 @@ const fetch = async (api, limit = 1, signal) => {
         resolve("sucess:200");
       } else if (limit > 0) {
         try {
-          const result = await fetch(api, limit - 1, signal);
+          const result = await fetch(api, limit - 1, options);
           resolve(result);
         } catch (error) {
           reject(error);
@@ -22,19 +24,11 @@ const fetch = async (api, limit = 1, signal) => {
       }
     }, 1000);
 
-    // signal?.("abort", () => {addEventListener
-    //   clearTimeout(timeoutId);
-    //   reject(new Error("Aborted"));
-    // });
-
-    signal.addEventListener("abort",()=>{
-      clearTimeout(timeoutId)
-      reject(new Error("aborted event"))
-    })
-
-
+    signal.addEventListener("abort", () => {
+      clearTimeout(timeoutId);
+      reject(new Error("aborted event"));
+    });
   });
-
 };
 
 export default fetch;

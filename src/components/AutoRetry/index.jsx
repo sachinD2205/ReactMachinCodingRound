@@ -1,5 +1,4 @@
-import { useEffect ,useState} from "react";
-import fetch from "./fetch";
+import { useState } from "react";
 import TempFetch from "./TempFetch";
 import FetchWithApi from "./FetchWithApi";
 

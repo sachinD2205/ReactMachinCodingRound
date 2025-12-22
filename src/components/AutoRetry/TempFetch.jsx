@@ -7,7 +7,7 @@ const TempFetch = () => {
     const controller = new AbortController();
 
 
-    fetch("abc/xyz", 3,controller.signal)
+    fetch("abc/xyz", 3,{signal:controller.signal})
       .then((d) => {
         console.log("api succesfull", d);
       })
