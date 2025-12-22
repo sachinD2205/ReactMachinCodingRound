@@ -5,8 +5,13 @@ import ShimmerCard from "./ShimmerCard";
 const InfiniteScroll = () => {
   const [mems, setMems] = useState([]);
   const [showShimmer, setShowShimmer] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchMemes = useCallback(async () => {
+    if (isLoading) return; // Prevent duplicate calls
+
+    setIsLoading(true);
+    setShowShimmer(true);
     try {
       const api = `https://meme-api.com/gimme/20`;
       const res = await fetch(api);
@@ -19,20 +24,23 @@ const InfiniteScroll = () => {
       setShowShimmer(false);
     } catch (error) {
       setShowShimmer(false);
+    } finally {
+      setIsLoading(false);
     }
-  }, []);
+  }, [isLoading]);
 
   useEffect(() => {
-    setShowShimmer(true);
     fetchMemes();
+  }, []); // Run only on mount
+
+  useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
       const innerHeight = window.innerHeight;
       const scrollHeight = document.body.scrollHeight;
       const scroollYInnerHeight = scrollY + innerHeight;
 
-      if (scroollYInnerHeight >= scrollHeight) {
-        setShowShimmer(true);
+      if (scroollYInnerHeight >= scrollHeight && !isLoading) {
         fetchMemes();
       }
     };
@@ -42,7 +50,7 @@ const InfiniteScroll = () => {
     return () => {
       document.removeEventListener("scroll", handleScroll);
     };
-  }, [fetchMemes]);
+  }, [fetchMemes, isLoading]);
 
   let shimmer = Array(8).fill("");
 
