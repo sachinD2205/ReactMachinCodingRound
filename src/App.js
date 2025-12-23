@@ -10,14 +10,15 @@ import CounterState from "./components/CounterState/Index";
 import Intervals from "./components/intervals/Intervals.jsx";
 import AutoComplete from "./components/autoComplete/AutoComplete";
 import Tab from "./components/tabList/Tab.jsx";
-import ToDoList from "./components/toDoList/ToDoList"
+import ToDoList from "./components/toDoList/ToDoList";
 import BarChart from "./components/BarChart/index.jsx";
 import AutoRetry from "./components/AutoRetry";
-import InfiniteScroll from "./components/InfiniteScroll"
+import InfiniteScroll from "./components/InfiniteScroll";
+import LRU_Cache from "./components/LRU_Cache/index.jsx";
 
 function App() {
   return (
-    <> 
+    <>
       {/* <CustomModal /> */}
 
       {/* <ExUseMemoHook /> */}
@@ -36,7 +37,6 @@ function App() {
 
       {/* <Intervals /> */}
 
-
       {/* <AutoComplete /> */}
 
       {/* <Tab/> */}
@@ -47,8 +47,9 @@ function App() {
 
       {/* <AutoRetry  /> */}
 
-      <InfiniteScroll/>
+      {/* <InfiniteScroll/> */}
 
+      <LRU_Cache />
     </>
   );
 }
