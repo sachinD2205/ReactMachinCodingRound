@@ -15,6 +15,7 @@ import BarChart from "./components/BarChart/index.jsx";
 import AutoRetry from "./components/AutoRetry";
 import InfiniteScroll from "./components/InfiniteScroll";
 import LRU_Cache from "./components/LRU_Cache/index.jsx";
+import Accordin from "./components/Accordin/index.jsx";
 
 function App() {
   return (
@@ -49,7 +50,10 @@ function App() {
 
       {/* <InfiniteScroll/> */}
 
-      <LRU_Cache />
+      {/* <LRU_Cache /> */}
+      
+      <Accordin/>
+
     </>
   );
 }

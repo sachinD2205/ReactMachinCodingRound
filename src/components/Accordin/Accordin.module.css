@@ -1,0 +1,62 @@
+.buttonWrapper {
+  padding: 5px 7px;
+}
+
+.buttonWrapper button {
+  background: transparent;
+  display: inline-block;
+  width: 100%;
+  text-align: start;
+  border: none;
+  margin: 15px;
+  padding: 20px;
+  border: 1px solid black;
+}
+
+.buttonWrapper button div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.AccordinItem {
+  margin: 15px;
+  padding: 20px;
+  border: 1px solid black;
+}
+
+.AccordinIcon {
+  size: 20px;
+}
+
+.AccordinIcon[data-is-open="false"] {
+  transform: rotate(180deg);
+  font-size: 37px;
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s linear;
+}
+
+.AccordinIcon[data-is-open="true"] {
+  transform: rotate(0deg);
+  font-size: 37px;
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s linear;
+}
+
+.AccordinContent {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s linear;
+  padding: 0px 5px;
+}
+
+.AccordinContent[data-is-open="true"] {
+  max-height: 500px;
+  transition: max-height 0.3s linear;
+  padding: 0px 5px;
+}
